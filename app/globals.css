@@ -20,7 +20,94 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-orange {
+  background: orange;
+  color: white;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+}
+.highlight {
+  color: orange;
+  font-weight: bold;
+}
+
+/* HERO */
+.hero {
+  margin-top: 50px;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* TEXT */
+.hero-text h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.hero-text h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.hero-text p {
+  color: #555;
+  max-width: 400px;
+}
+
+/* BUTTON */
+.hero-btn {
+  margin-top: 20px;
+}
+
+.btn-outline {
+  border: 1px solid black;
+  background: transparent;
+  margin-left: 10px;
+}
+
+/* IMAGE */
+.hero-image {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+/* FOTO (center sempurna) */
+.hero-image img {
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 50%;
+  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  z-index: 2;
 }
