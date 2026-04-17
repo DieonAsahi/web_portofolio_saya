@@ -35,6 +35,8 @@ export const metadata = {
 
   keywords: [
     "Atha Dion Saputra",
+    "Portfolio Atha Dion Saputra",
+    "Atha DS",
     "Web Developer",
     "Mobile Developer",
     "Portfolio",

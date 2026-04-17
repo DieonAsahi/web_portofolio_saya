@@ -111,3 +111,62 @@ body {
   
   z-index: 2;
 }
+
+.services-container {
+  display: flex;
+  gap: 20px;
+}
+
+/* RESPONSIVE MOBILE */
+@media (max-width: 768px) {
+  
+  .hero-content {
+    flex-direction: column-reverse; /* gambar di atas */
+    text-align: center;
+    gap: 30px;
+  }
+
+  .hero-text h1 {
+    font-size: 28px;
+  }
+
+  .hero-text h2 {
+    font-size: 20px;
+  }
+
+  .hero-text p {
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .hero-btn {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  /* IMAGE */
+  .hero-image {
+    width: 220px;
+    height: 220px;
+  }
+
+  .hero-image img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .container {
+    width: 95%;
+  }
+
+   .services-container {
+    flex-direction: column;
+  }
+}
