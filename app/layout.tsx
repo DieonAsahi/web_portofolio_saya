@@ -40,15 +40,16 @@ export const metadata = {
     "Web Developer",
     "Mobile Developer",
     "Portfolio",
-    "Frontend Developer"
+    "Frontend Developer",
   ],
 
   authors: [{ name: "Atha Dion Saputra" }],
 
   icons: {
     icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/logo.jpg",
   },
-
   openGraph: {
     title: "Portfolio Atha Dion Saputra",
     description: "Website portfolio resmi Atha Dion Saputra",
