@@ -1,15 +1,10 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,54 +14,182 @@
   }
 }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
-}
-
-.container {
-  width: 90%;
-  margin: auto;
-}
-
-.btn {
-  padding: 10px 20px;
-  border-radius: 20px;
-  border: none;
-  cursor: pointer;
-}
-
-.btn-orange {
-  background: orange;
+/* ===== BASE INTRO ===== */
+.intro {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, #0f172a, #020617);
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   color: white;
+  z-index: 50;
+  opacity: 1;
+  transform: scale(1);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
 }
 
-.card {
-  background: white;
-  padding: 20px;
+.intro::before {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  opacity: 0.6;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.3), transparent);
+  top: 20%;
+  left: 30%;
+  filter: blur(100px);
+  animation: moveGlow 6s infinite alternate;
+}
+
+.intro-leave {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+.intro-icons {
+  display: flex;
+  gap: 20px;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+/* ===== BASE NAVBAR ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  padding: 15px 0;
+  z-index: 9999;
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 8px 15px;
   border-radius: 15px;
-}
-.highlight {
-  color: orange;
-  font-weight: bold;
+  backdrop-filter: blur(10px);
+
+  transition: all 0.3s ease;
 }
 
-/* HERO */
+.nav-menu.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nav-menu.hide {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+  transition: 0.3s;
+}
+
+.nav-menu a:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: none;
+
+  background: linear-gradient(90deg, #6a5cff, #9f7aea, #38bdf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  color: transparent; /* fallback */
+}
+
+/* ===== LOGO GRADIENT ANIMATION ===== */
+.logo-gradient {
+  font-weight: bold;
+  font-size: 20px;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 10px rgba(106, 92, 255, 0.5);
+
+  background: linear-gradient(
+    90deg,
+    #ffffff,
+    #6a5cff,
+    #9f7aea,
+    #38bdf8,
+    #ffffff
+  );
+
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: gradientMove 3s linear infinite;
+}
+
+.logo-gradient.hide {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+}
+
+.logo-gradient.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== BASE HERO ===== */
 .hero {
-  margin-top: 50px;
+  padding-top: 80px;
+  min-height: calc(100vh - 80px);
 }
 
 .hero-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 60px; /* ⬅️ ini penting banget */
+}
+
+.hero-image {
+  width: 350px;
+  justify-self: end; /* ⬅️ ini kunci */ /* ⬅️ biar tidak ketekan */
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0;
+  position: static;
+  transform: none;
 }
 
 /* TEXT */
+.hero-text {
+  max-width: 550px;
+}
+
 .hero-text h1 {
-  font-size: 40px;
-  margin-bottom: 10px;
+  font-size: 48px;
+  line-height: 1.2;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #6a5cff, #9f7aea, #38bdf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-text h2 {
@@ -75,41 +198,279 @@ body {
 }
 
 .hero-text p {
-  color: #555;
-  max-width: 400px;
+  color: #aaa;
+  max-width: 450px;
+  margin: 15px 0;
+}
+
+.hero-text .hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 6px 14px;
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  font-size: 12px;
+  color: #ddd;
+
+  backdrop-filter: blur(10px);
+
+  transition: all 0.3s ease;
+}
+
+.hero-text .hero-tag:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(90deg, #6a5cff, #9f7aea, #38bdf8);
+  color: white;
+  box-shadow: 0 5px 15px rgba(106, 92, 255, 0.4);
+}
+
+.hero-stack {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+  flex-wrap: wrap;
+}
+
+.hero-stack span {
+  background: rgba(255, 255, 255, 0.1); /* Lebih ringan dari #1a1a1a */
+  color: #ddd;
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 12px;
+  transition: 0.3s;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.hero-stack span:hover {
+  transform: translateY(-5px) scale(1.05); /* ⬅️ efek naik */
+  box-shadow: 0 10px 20px rgba(106, 92, 255, 0.3); /* glow */
+  background: linear-gradient(90deg, #6a5cff, #9f7aea);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-desc {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #9f7aea;
+  max-width: 500px;
+  margin: 15px 0;
+
+  position: relative;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.hero-desc:hover {
+  color: #e5e7eb;
+  transform: translateY(-2px);
+}
+
+.hero-desc::before {
+  content: "";
+  position: absolute;
+  left: -15px;
+  top: 5px;
+  width: 4px;
+  height: 80%;
+  background: linear-gradient(180deg, #6a5cff, #38bdf8);
+  border-radius: 10px;
+  opacity: 0.7;
+}
+
+.hero-desc:active {
+  cursor: grabbing;
+  transform: scale(0.98);
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+/* ===== ABOUT ===== */
+.about {
+  margin-top: 50px;
+  padding-top: 90px;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+/* FOTO */
+.about-image {
+  position: relative;
+  width: 320px;
+  height: 320px;
+}
+
+/* glow belakang */
+.about-image::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.4), transparent);
+  filter: blur(40px);
+  z-index: 0;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+}
+
+.nama-gradient {
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 1.2;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 10px rgba(106, 92, 255, 0.5);
+
+  background: linear-gradient(
+    90deg,
+    #ffffff,
+    #6a5cff,
+    #9f7aea,
+    #38bdf8,
+    #ffffff
+  );
+
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: gradientMove 3s linear infinite;
+}
+
+/* TEXT */
+.about-text {
+  max-width: 500px;
+}
+
+.about-hov {
+  font-size: 24px;
+  line-height: 1.8;
+  color: #9f7aea;
+  max-width: 500px;
+  margin: 15px 0;
+
+  position: relative;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.project-hov:hover {
+  color: #e5e7eb;
+  transform: translateY(-2px);
+}
+
+
+.about-text h1 {
+  font-size: 40px;
+  margin-bottom: 15px;
+  margin-top: -15px;
+}
+
+.about-text p {
+  color: #aaa;
+  margin: 15px 0;
+}
+
+/* BUTTON */
+.about-btn {
+  margin-top: 20px;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  color: white;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: grabbing;
+  color: white; /* Tambahkan ini */
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.highlight {
+  color: #9f7aea; /* ungu */
+  font-weight: 600;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 80px;
 }
 
 /* BUTTON */
 .hero-btn {
-  margin-top: 20px;
+  margin-top: 25px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
+/* Cari bagian .btn-outline di CSS kamu dan ganti menjadi: */
 .btn-outline {
-  border: 1px solid black;
-  background: transparent;
-  margin-left: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
 }
 
-/* IMAGE */
-.hero-image {
-  position: relative;
-  width: 300px;
-  height: 300px;
+.btn-outline:hover {
+  background: linear-gradient(90deg,#6a5cff, #9f7aea, #38bdf8);
+  color: white;
+  transform: translateY(-5px) scale(1.05); /* ⬅️ efek naik */
+  box-shadow: 0 10px 20px rgba(106, 92, 255, 0.3); /* glow */
 }
 
-/* FOTO (center sempurna) */
-.hero-image img {
-  width: 260px;
-  height: 260px;
-  object-fit: cover;
-  border-radius: 50%;
-  
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  
-  z-index: 2;
+.btn-portofolio {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn-portofolio:hover {
+  background: linear-gradient(90deg, #3b82f6, #9f7aea);
+  color: white;
+  transform: translateY(-2px);
 }
 
 .services-container {
@@ -117,9 +478,701 @@ body {
   gap: 20px;
 }
 
+.icon {
+  opacity: 0;
+  transform: translateY(20px) scale(0.8);
+  animation:
+    iconIn 0.6s forwards,
+    float 2s ease-in-out infinite alternate 0.6s;
+}
+.i1 {
+  animation-delay: 0.2s;
+}
+.i2 {
+  animation-delay: 0.4s;
+}
+.i3 {
+  animation-delay: 0.6s;
+}
+
+.intro-big {
+  font-size: 36px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #aaa, #fff, #ccc, #fff, #aaa);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: shine 3s linear infinite;
+}
+
+.intro-big::after {
+  content: "|";
+  margin-left: 5px;
+  animation: blink 1s infinite;
+}
+
+.intro:hover {
+  cursor: pointer;
+  filter: brightness(1.1);
+}
+
+/* CONTAINER */
+.project-container {
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Mengetengahkan semua blok */
+}
+
+.project-content {
+  width: 100%;
+  max-width: 800px; /* Samakan lebarnya */
+  text-align: left;
+}
+
+.project-header {
+  width: 100%;
+  max-width: 800px; /* Samakan dengan max-width project-content kamu */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Memastikan isi header (tombol & teks) mepet kiri */
+  margin-bottom: 40px;
+}
+
+.project-back {
+  display: inline-block;
+  align-self: flex-start;
+
+  margin-bottom: 20px;
+
+  padding: 10px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 14px;
+
+  transition: all 0.3s ease;
+}
+
+.project-back:hover {
+  background: white;
+  color: black;
+  transform: translateX(-5px); /* ini aja cukup */
+}
+
+/* TITLE */
+.project-title {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+/* SUBTITLE */
+.project-desc {
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+/* IMAGE */
+.project-image {
+  margin-bottom: 30px;
+}
+
+.project-image img {
+  width: 100%;
+  max-width: 800px; /* Diperlebar sedikit agar lebih megah */
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* CONTENT */
+
+.project-content h2 {
+  margin-bottom: 10px;
+}
+
+.project-content p {
+  margin-bottom: 20px;
+}
+
+.project-content ul {
+  margin-bottom: 20px;
+  list-style: disc;
+  padding-left: 20px;
+  color: #ccc;
+}
+
+.project-content li {
+  margin-bottom: 8px;
+}
+/* BUTTON */
+.project-btn {
+  margin-top: 20px;
+}
+
+/* ===== WATER BACKGROUND ===== */
+.water {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40%;
+  background: radial-gradient(circle at center, #1e3a8a, #020617);
+  overflow: hidden;
+}
+
+/* ===== DROP ===== */
+.drop {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  width: 10px;
+  height: 20px;
+  background: #60a5fa;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  animation: dropFall 1s ease-in forwards;
+}
+
+@keyframes dropFall {
+  to {
+    top: 60%;
+  }
+}
+
+/* ===== RIPPLE ===== */
+.ripple {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #60a5fa;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: rippleExpand 1.5s ease-out forwards;
+}
+
+@keyframes rippleExpand {
+  0% {
+    opacity: 0.8;
+    width: 20px;
+    height: 20px;
+  }
+  100% {
+    opacity: 0;
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* WRAPPER */
+.image-scroll-wrapper {
+  overflow: hidden;
+  width: 100%;
+  margin: 40px 0; /* Tambahkan spasi atas dan bawah */
+  padding: 20px 0;
+}
+
+/* CONTAINER */
+.image-scroll {
+  display: flex;
+  gap: 30px;
+  width: max-content;
+  animation: scrollLeft 40s linear infinite;
+}
+
+.image-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* IMAGE */
+.image-scroll img {
+  width: 570px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+/* CONTAINER UTAMA */
+.image-scroll-app {
+  overflow: hidden;
+  width: 100%;
+  margin: 40px 0;
+  padding: 20px 0;
+  background: #0a0a0a; /* Opsional: sesuaikan dengan tema portofolio */
+  position: relative;
+}
+
+/* TRACK ANIMASI */
+.image-scrollapp {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: scrollLeft 30s linear infinite;
+}
+
+/* IMAGE - Perbaikan ukuran agar tidak gepeng */
+.image-scrollapp img {
+  width: auto; /* Biarkan lebar mengikuti proporsi asli */
+  height: 400px; /* Tinggi yang lebih pas untuk pamer UI Mobile */
+  object-fit: contain; /* Menampilkan seluruh bagian UI tanpa terpotong */
+  border-radius: 16px;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.image-scrollapp:hover {
+  animation-play-state: paused;
+}
+
+/* ANIMASI */
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ===== TEXT ===== */
+.intro-text {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-top: -50px;
+  animation: fadeUp 1s ease forwards;
+}
+
+.intro-text h2 {
+  font-size: 18px;
+  color: #ccc;
+}
+
+.intro-text h1 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* ===== PORTFOLIO ===== */
+.portfolio {
+  margin-top: 100px;
+  padding-top: 100px;
+}
+
+/* TAB */
+.portfolio-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.portfolio-tabs button {
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.portfolio-tabs button:hover {
+  background: linear-gradient(90deg, #6a5cff, #38bdf8);
+}
+
+/* ACTIVE TAB */
+.portfolio-tabs .active {
+  background: linear-gradient(90deg, #38bdf8, #3b82f6, #9f7aea, #6a5cff);
+}
+
+/* GRID */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+/* CARD */
+.project-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.project-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.project-card h3 {
+  margin-bottom: 10px;
+
+  font-weight: bold;
+  font-size: 24px;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 10px rgba(106, 92, 255, 0.5);
+
+  background: linear-gradient(
+    90deg,
+    #ffffff,
+    #6a5cff,
+    #9f7aea,
+    #38bdf8,
+    #ffffff
+  );
+
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: gradientMove 3s linear infinite;
+}
+
+.project-card p {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.project-hov {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #9f7aea;
+  max-width: 500px;
+  margin: 15px 0;
+
+  position: relative;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.project-hov:hover {
+  color: #e5e7eb;
+  transform: translateY(-2px);
+}
+
+.hero-desc-tech {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #9f7aea;
+  max-width: 500px;
+  margin: 15px 0;
+
+  position: relative;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.hero-desc-tech:hover {
+  color: #e5e7eb;
+  transform: translateY(-2px);
+}
+.hero-desc-tech::before {
+  content: "";
+  position: absolute;
+  left: -15px;
+  top: 5px;
+  width: 4px;
+  height: 80%;
+  background: linear-gradient(180deg, #6a5cff, #38bdf8);
+  border-radius: 20px;
+  opacity: 0.7;
+}
+
+.hero-desc-tech:active {
+  cursor: grabbing;
+  transform: scale(0.98);
+}
+
+.hero-tech {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+}
+
+.stack-item {
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+
+  font-size: 22px;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  transition: 0.3s;
+}
+
+/* hover glow */
+.stack-item:hover {
+  transform: translateY(-5px) scale(1.05); /* ⬅️ efek naik */
+  box-shadow: 0 10px 20px rgba(106, 92, 255, 0.3); /* glow */
+  background: linear-gradient(90deg, #6a5cff, #9f7aea);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.stack-item svg {
+  font-size: 24px;
+  color: #aaa;
+  transition: 0.3s;
+}
+
+/* hover jadi berwarna + glow */
+.stack-item:hover svg {
+  color: white;
+}
+
+.stack-item:nth-child(1):hover svg {
+  color: #61dafb;
+} /* React */
+.stack-item:nth-child(2):hover svg {
+  color: #ffffff;
+} /* Next */
+.stack-item:nth-child(3):hover svg {
+  color: #38bdf8;
+} /* Flutter */
+.stack-item:nth-child(4):hover svg {
+  color: #3c873a;
+} /* Node */
+.stack-item:nth-child(5):hover svg {
+  color: #ffffff; /* Flask biasanya putih/monochrome */
+}
+.stack-item:nth-child(6):hover svg {
+  color: #38bdf8;
+} /* Tailwind */
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes float {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes moveGlow {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(100px, 50px);
+  }
+}
+@keyframes iconIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ===== CONTACT ===== */
+.contact {
+  margin-top: 120px;
+  padding-top: 120px;
+  text-align: center;
+}
+
+.contact-title {
+  font-size: 40px;
+  margin-bottom: 50px;
+}
+
+/* GRID */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* CARD */
+.contact-card {
+  padding: 30px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: white;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  transition: all 0.3s ease;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ICON */
+.contact-card svg {
+  font-size: 40px;
+}
+
+/* HOVER */
+.contact-card:hover {
+  transform: translateY(-10px) scale(1.03);
+}
+
+/* COLOR GLOW */
+.contact-card.ig:hover {
+  box-shadow: 0 10px 30px rgba(225, 48, 108, 0.5);
+}
+
+.contact-card.linkedin:hover {
+  box-shadow: 0 10px 30px rgba(0, 119, 181, 0.5);
+}
+
+.contact-card.wa:hover {
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
+}
+
+/* ===== WELCOME TEXT ANIMATION ===== */
+.intro-small {
+  font-size: 18px;
+  margin-bottom: 10px;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeUp 0.8s forwards;
+  animation-delay: 0.8s;
+}
+@keyframes stackFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== FOOTER MODERN ===== */
+.footer {
+  margin-top: 50px;
+  padding: 60px 20px 40px;
+  text-align: center;
+  position: relative;
+}
+
+/* glow background halus */
+.footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(106, 92, 255, 0.15),
+    transparent
+  );
+  filter: blur(80px);
+  z-index: 0;
+}
+
+.footer-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* TEXT UTAMA */
+.footer-text {
+  font-size: 15px;
+  color: #ddd;
+  margin-bottom: 15px;
+}
+
+/* GARIS GRADIENT */
+.footer-line {
+  width: 120px;
+  height: 2px;
+  margin: 0 auto 15px;
+
+  background: linear-gradient(90deg, #6a5cff, #9f7aea, #38bdf8);
+  border-radius: 10px;
+}
+
+/* SUB TEXT */
+.footer-sub {
+  font-size: 13px;
+  color: #888;
+  letter-spacing: 1px;
+}
+
+/* HOVER EFFECT HALUS */
+.footer-text:hover {
+  color: white;
+  transition: 0.3s;
+}
+
+/* ===== CLICK HINT ===== */
+.intro-click {
+  margin-top: 20px;
+  font-size: 12px;
+  opacity: 0.6;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
 /* RESPONSIVE MOBILE */
 @media (max-width: 768px) {
-  
   .hero-content {
     flex-direction: column-reverse; /* gambar di atas */
     text-align: center;
@@ -166,7 +1219,29 @@ body {
     width: 95%;
   }
 
-   .services-container {
+  .services-container {
     flex-direction: column;
+  }
+
+  .hero-stack {
+    justify-content: center;
+  }
+
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-image {
+    width: 220px;
+    height: 220px;
+  }
+
+  .about-text h1 {
+    font-size: 28px;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
   }
 }

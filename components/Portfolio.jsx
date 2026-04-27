@@ -1,0 +1,128 @@
+"use client";
+import { useState } from "react";
+import Link from "next/link";
+
+export default function Portfolio() {
+  const [activeTab, setActiveTab] = useState("projects");
+
+  return (
+    <div id="portfolio" className="container portfolio">
+      {/* TAB MENU */}
+      <div id="projects" className="portfolio-tabs">
+        <button
+          className={activeTab === "projects" ? "active" : ""}
+          onClick={() => setActiveTab("projects")}
+        >
+          Projects
+        </button>
+
+        <button
+          className={activeTab === "certificates" ? "active" : ""}
+          onClick={() => setActiveTab("certificates")}
+        >
+          Certificates
+        </button>
+
+        <button
+          className={activeTab === "tech" ? "active" : ""}
+          onClick={() => setActiveTab("tech")}
+        >
+          Tech Stack
+        </button>
+      </div>
+
+      {/* CONTENT */}
+      <div className="portfolio-content">
+        {activeTab === "projects" && (
+          <div className="project-grid">
+            {/* CARD 1 */}
+            <div className="project-card">
+              <img src="/images/color_art_page.png" alt="project" />
+              <h3>Web Ecommerce</h3>
+              <p className="project-hov">
+                Sebuah website ecommerce berbasis Laravel dengan fitur pemesanan
+                hingga pembayaran online.
+              </p>
+
+              <Link href="/project/ecommerce">
+                <button className="btn btn-portofolio">Detail</button>
+              </Link>
+            </div>
+
+            {/* CARD 2 */}
+            <div className="project-card">
+              <img src="/images/tryon_page.png" alt="project" />
+              <h3>Aplikasi Try-On Pakaian</h3>
+              <p className="project-hov">
+                Aplikasi untuk mencoba dan merekomendasikan pakaian secara
+                virtual sesuai dengan preferensi pengguna.
+              </p>
+
+              <Link href="/project/tryon">
+                <button className="btn btn-portofolio">Detail</button>
+              </Link>
+            </div>
+
+            {/* CARD 3 */}
+            <div className="project-card">
+              <img src="/images/pemilah_sampah.png" alt="project" />
+              <h3>Sistem Pemilah Sampah</h3>
+              <p className="project-hov">
+                Sistem ini berperan dalam mendeteksi dan memilah jenis sampah
+                melalui media gambar.
+              </p>
+
+              <Link href="/project/wastelife">
+                <button className="btn btn-portofolio">Detail</button>
+              </Link>
+            </div>
+
+            {/* CARD 4 */}
+            <div className="project-card">
+              <img src="/images/brono_page.png" alt="project" />
+              <h3>Web Profil Brono</h3>
+              <p className="project-hov">
+                Web Profil Brono merupakan website profil modern yang dirancang
+                untuk menampilkan informasi secara profesional, responsif, dan
+                mudah diakses di berbagai perangkat.
+              </p>
+
+              <Link href="/project/brono">
+                <button className="btn btn-portofolio">Detail</button>
+              </Link>
+            </div>
+
+            <div className="project-card">
+              <img src="/images/coming_soon.png" alt="project" />
+              <h3>Aplikasi Manajemen Kendaraan Motor</h3>
+              {/* <p>
+                Aplikasi .
+              </p> */}
+
+              {/* <Link href="/project/bronp">
+                <button className="btn btn-portofolio">Detail</button>
+              </Link> */}
+            </div>
+
+            <div className="project-card">
+              <img src="/images/coming_soon.png" alt="project" />
+              <h3>Game FPS 3D</h3>
+              {/* <p>
+                Aplikasi untuk mencoba dan merekomendasikan pakaian secara
+                virtual sesuai dengan preferensi pengguna.
+              </p> */}
+
+              {/* <Link href="/project/bronp">
+                <button className="btn btn-portofolio">Detail</button>
+              </Link> */}
+            </div>
+          </div>
+        )}
+
+        {activeTab === "certificates" && <h2>Certificates Coming Soon</h2>}
+
+        {activeTab === "tech" && <h2>Tech Stack Coming Soon</h2>}
+      </div>
+    </div>
+  );
+}
