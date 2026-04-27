@@ -182,7 +182,7 @@
 }
 
 .hero-text h1 {
-  font-size: 48px;
+  font-size: 36px;
   line-height: 1.2;
 }
 
@@ -876,7 +876,7 @@ section {
 }
 
 .hero-desc-tech {
-  font-size: 16px;
+  font-size: 24px;
   line-height: 1.8;
   color: #9f7aea;
   max-width: 500px;
@@ -910,7 +910,7 @@ section {
 }
 
 .hero-tech {
-  margin-top: 30px;
+  margin-top: 0px;
   display: flex;
   gap: 15px;
 }
@@ -1151,6 +1151,33 @@ section {
   transition: 0.3s;
 }
 
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+/* animasi X */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
 /* ===== CLICK HINT ===== */
 .intro-click {
   margin-top: 20px;
@@ -1242,6 +1269,101 @@ section {
   }
 
   .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    gap: 15px;
+
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+  }
+
+  .nav-menu.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* HERO */
+  .hero-content {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .hero-image {
+    justify-content: center;
+  }
+
+  .hero-image img {
+    max-width: 220px;
+  }
+
+  .hero-text h1 {
+    font-size: 28px;
+  }
+
+  .hero-text h3 {
+    font-size: 18px;
+  }
+
+  .hero-desc {
+    font-size: 14px;
+  }
+
+  .hero-stack {
+    justify-content: center;
+  }
+
+  /* ABOUT */
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .about-text h1 {
+    font-size: 28px;
+  }
+
+  /* BUTTON */
+  .hero-btn {
+    justify-content: center;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  /* GRID PROJECT */
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* CONTACT */
+  .contact-grid {
     grid-template-columns: 1fr;
   }
 }
