@@ -58,7 +58,7 @@ export default function Navbar() {
           Atha Dion Saputra
         </h3>
 
-        {/* HAMBURGER (SELALU MUNCUL DI MOBILE) */}
+        {/* HAMBURGER (SELALU MUNCUL DI MOBILE)
         <div
           className={`hamburger ${open ? "active" : ""}`}
           onClick={() => setOpen(!open)}
@@ -66,7 +66,7 @@ export default function Navbar() {
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </div> */}
 
         {/* MENU */}
         <div
