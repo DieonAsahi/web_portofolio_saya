@@ -5,22 +5,41 @@ export default function Navbar() {
   const [showMenu, setShowMenu] = useState(true);
   const [showLogo, setShowLogo] = useState(true);
   const [lastScroll, setLastScroll] = useState(0);
-  const [open, setOpen] = useState(false); // ⬅️ WAJIB
+  const [open, setOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
+  // DETEKSI MOBILE
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // SCROLL LOGIC
   useEffect(() => {
     const handleScroll = () => {
       const currentScroll = window.scrollY;
 
       if (currentScroll < 50) {
         setShowLogo(true);
-        setShowMenu(true);
+
+        if (!isMobile) {
+          setShowMenu(true);
+        }
       } else {
         setShowLogo(false);
 
-        if (currentScroll > lastScroll) {
-          setShowMenu(false);
-        } else {
-          setShowMenu(true);
+        if (!isMobile) {
+          if (currentScroll > lastScroll) {
+            setShowMenu(false);
+          } else {
+            setShowMenu(true);
+          }
         }
       }
 
@@ -29,7 +48,7 @@ export default function Navbar() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScroll]);
+  }, [lastScroll, isMobile]);
 
   return (
     <nav className="navbar">
@@ -39,7 +58,7 @@ export default function Navbar() {
           Atha Dion Saputra
         </h3>
 
-        {/* HAMBURGER */}
+        {/* HAMBURGER (SELALU MUNCUL DI MOBILE) */}
         <div
           className={`hamburger ${open ? "active" : ""}`}
           onClick={() => setOpen(!open)}
@@ -51,7 +70,15 @@ export default function Navbar() {
 
         {/* MENU */}
         <div
-          className={`nav-menu ${showMenu ? "show" : "hide"} ${open ? "active" : ""}`}
+          className={`nav-menu ${
+            isMobile
+              ? open
+                ? "active"
+                : ""
+              : showMenu
+              ? "show"
+              : "hide"
+          }`}
         >
           <a href="#home" onClick={() => setOpen(false)}>
             Home

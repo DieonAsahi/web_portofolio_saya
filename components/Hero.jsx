@@ -3,6 +3,7 @@ import {
   SiNextdotjs,
   SiFlutter,
   SiTailwindcss,
+  SiReact,
 } from "react-icons/si";
 import { SiFlask } from "react-icons/si";
 
@@ -36,34 +37,24 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* TECH STACK */}
-          {/* <div className="hero-stack">
-            <span>React</span>
-            <span>Next.js</span>
-            <span>Dart (Flutter)</span>
-            <span>Flask</span>
-            <span>Node.js</span>
-            <span>JavaScript</span>
-          </div> */}
-
           <p className="hero-desc-tech"> Tech Stack</p>
           <div className="hero-tech">
-            <div className="stack-item">
-              <FaReact />
+            <div className="stack-item react">
+              <SiReact />
             </div>
-            <div className="stack-item">
+            <div className="stack-item next">
               <SiNextdotjs />
             </div>
-            <div className="stack-item">
+            <div className="stack-item flutter">
               <SiFlutter />
             </div>
-            <div className="stack-item">
+            <div className="stack-item node">
               <FaNodeJs />
             </div>
-            <div className="stack-item">
+            <div className="stack-item flask">
               <SiFlask />
             </div>
-            <div className="stack-item">
+            <div className="stack-item tailwind">
               <SiTailwindcss />
             </div>
           </div>

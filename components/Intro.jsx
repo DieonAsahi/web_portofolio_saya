@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-
+import { FaGlobe, FaMobileAlt, FaCode } from "react-icons/fa";
 export default function Intro({ onFinish }) {
   const [text, setText] = useState("");
   const [ready, setReady] = useState(false);
@@ -41,7 +41,7 @@ export default function Intro({ onFinish }) {
         clearInterval(interval);
         setReady(true);
       }
-    }, 50);
+    }, 80);
 
     return () => clearInterval(interval);
   }, [startTyping]);
@@ -62,9 +62,9 @@ export default function Intro({ onFinish }) {
       style={{ cursor: ready ? "pointer" : "default" }}
     >
       <div className="intro-icons">
-        <span className="icon i1">🌐</span>
-        <span className="icon i2">📱</span>
-        <span className="icon i3">🎮</span>
+        <FaGlobe className="icon i1" />
+        <FaMobileAlt className="icon i2" />
+        <FaCode className="icon i3" />
       </div>
 
       {showWelcome && <h2 className="intro-small">Welcome To My</h2>}

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { SiBootstrap, SiLaravel, SiMysql } from "react-icons/si";
 
 export default function Page() {
   const router = useRouter();
@@ -28,14 +29,15 @@ export default function Page() {
       </div>
 
       <div className="project-content">
-        <h2>Tentang Project</h2>
-        <p>
-          Dalam proyek ini, saya berperan sebagai DevOps sekaligus Backend
-          Developer. Saya bertanggung jawab dalam proses deployment aplikasi,
-          konfigurasi server, serta pengelolaan DNS untuk memastikan website
-          dapat diakses secara optimal. Di sisi backend, saya menangani
-          konfigurasi sistem dan memastikan seluruh fitur berjalan stabil
-          sebelum digunakan oleh pengguna.
+        <h2 className="hero-desc-tech">Tentang Project</h2>
+        <p className="port-desc">
+          Dalam proyek ini, saya berperan sebagai{" "}
+          <span className="highlight">DevOps</span> sekaligus{" "}
+          <span className="highlight">Backend</span> Developer. Saya bertanggung
+          jawab dalam proses deployment aplikasi, konfigurasi server, serta
+          pengelolaan DNS untuk memastikan website dapat diakses secara optimal.
+          Di sisi backend, saya menangani konfigurasi sistem dan memastikan
+          seluruh fitur berjalan stabil sebelum digunakan oleh pengguna.
         </p>
 
         <div className="image-scroll-wrapper">
@@ -53,7 +55,7 @@ export default function Page() {
           </div>
         </div>
 
-        <p>
+        <p className="port-desc">
           Website ini merupakan platform e-commerce dengan dua peran utama,
           yaitu admin dan user. Pengguna dapat melakukan eksplorasi produk,
           menambahkan item ke keranjang, hingga melakukan proses pembelian
@@ -65,8 +67,8 @@ export default function Page() {
           admin.
         </p>
 
-        <h2>Fitur Utama</h2>
-        <ul>
+        <h2 className="hero-desc-tech">Fitur Utama</h2>
+        <ul className="feature-list">
           <li>Menampilkan katalog produk dengan navigasi yang intuitif</li>
           <li>
             Keranjang belanja dinamis untuk pengalaman belanja yang praktis
@@ -76,22 +78,18 @@ export default function Page() {
           <li>Sistem autentikasi pengguna (login & register)</li>
         </ul>
 
-        <h2>Tech Stack</h2>
-        <div className="hero-stack">
-          <span>Laravel</span>
-          <span>MySQL</span>
-          <span>Bootstrap</span>
+        <h2 className="hero-desc-tech">Tech Stack</h2>
+        <div className="hero-tech">
+          <div className="stack-item laravel">
+            <SiLaravel />
+          </div>
+          <div className="stack-item mysql">
+            <SiMysql />
+          </div>
+          <div className="stack-item bootstrap">
+            <SiBootstrap />
+          </div>
         </div>
-
-        {/* <div className="project-btn">
-          <a
-            href="https://github.com/username/ecommerce"
-            target="_blank"
-            className="btn btn-orange"
-          >
-            View Source Code
-          </a>
-        </div> */}
       </div>
     </div>
   );

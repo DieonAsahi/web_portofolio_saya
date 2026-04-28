@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-
+import {SiFlutter, SiFlask, SiPython, SiMysql} from "react-icons/si";
+import { FaBrain } from "react-icons/fa";
 export default function Page() {
   const router = useRouter();
 
@@ -27,7 +28,7 @@ export default function Page() {
       </div>
 
       <div className="project-content">
-        <h2>Tentang Project</h2>
+        <h2 className="hero-desc-tech">Tentang Project</h2>
         <p>
           Dalam proyek ini, saya berperan sebagai Tech Lead sekaligus Machine
           Learning Engineer. Saya memimpin pengembangan solusi secara
@@ -77,8 +78,8 @@ export default function Page() {
           sosial untuk meningkatkan interaksi dan engagement.
         </p>
 
-        <h2>Fitur Utama</h2>
-        <ul>
+        <h2 className="hero-desc-tech">Fitur Utama</h2>
+        <ul className="feature-list">
           <li>Sistem rekomendasi pakaian berbasis preferensi pengguna</li>
           <li>Lemari virtual untuk menyimpan dan mengelola koleksi pakaian</li>
           <li>Fitur virtual try-on untuk mencoba pakaian secara real-time</li>
@@ -88,14 +89,23 @@ export default function Page() {
           <li>Autentikasi pengguna menggunakan Google (OAuth)</li>
         </ul>
 
-        <h2>Tech Stack</h2>
-        <div className="hero-stack">
-          <span>Flutter</span>
-          <span>MySQL</span>
-          <span>Flask</span>
-          <span>Python</span>
-          <span>Machine Learning</span>
-          <span>Deep Learning</span>
+        <h2 className="hero-desc-tech"> Tech Stack</h2>
+        <div className="hero-tech">
+          <div className="stack-item flutter">
+            <SiFlutter />
+          </div>
+          <div className="stack-item mysql">
+            <SiMysql />
+          </div>
+          <div className="stack-item python">
+            <SiPython />
+          </div>
+          <div className="stack-item flask">
+            <SiFlask />
+          </div>
+          <div className="stack-item ai">
+            <FaBrain />
+          </div>
         </div>
 
         {/* <div className="project-btn">

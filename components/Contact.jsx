@@ -1,4 +1,4 @@
-import { FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
+import { FaInstagram, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 export default function Contact() {
   return (
@@ -29,13 +29,14 @@ export default function Contact() {
         </a>
 
         <a
-          href="https://wa.me/6285695950182"
-          className="contact-card wa"
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=dieonasahi@gmail.com"
           target="_blank"
+          rel="noopener noreferrer"
+          className="contact-card email"
         >
-          <FaWhatsapp />
-          <h3>WhatsApp</h3>
-          <p>+62 856-9595-0182</p>
+          <FaEnvelope />
+          <h3>Email</h3>
+          <p>dieonasahi@gmail.com</p>
         </a>
       </div>
     </section>

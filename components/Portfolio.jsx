@@ -2,6 +2,22 @@
 import { useState } from "react";
 import Link from "next/link";
 
+import {
+  SiNextdotjs,
+  SiFlask,
+  SiReact,
+  SiNodedotjs,
+  SiFlutter,
+  SiLaravel,
+  SiMysql,
+  SiTailwindcss,
+  SiPython,
+  SiBootstrap,
+  SiHtml5,
+  SiCss,
+  SiJavascript,
+} from "react-icons/si";
+
 export default function Portfolio() {
   const [activeTab, setActiveTab] = useState("projects");
 
@@ -82,9 +98,8 @@ export default function Portfolio() {
               <img src="/images/brono_page.png" alt="project" />
               <h3>Web Profil Brono</h3>
               <p className="project-hov">
-                Web Profil Brono merupakan website profil modern yang dirancang
-                untuk menampilkan informasi secara profesional, responsif, dan
-                mudah diakses di berbagai perangkat.
+                Website profil modern yang responsif, ringan, dan mudah diakses
+                di berbagai perangkat.
               </p>
 
               <Link href="/project/brono">
@@ -121,7 +136,49 @@ export default function Portfolio() {
 
         {activeTab === "certificates" && <h2>Certificates Coming Soon</h2>}
 
-        {activeTab === "tech" && <h2>Tech Stack Coming Soon</h2>}
+        {activeTab === "tech" && (
+          <div className="port-tech">
+            <div className="stack-item react">
+              <SiReact />
+            </div>
+            <div className="stack-item next">
+              <SiNextdotjs />
+            </div>
+            <div className="stack-item flutter">
+              <SiFlutter />
+            </div>
+            <div className="stack-item node">
+              <SiNodedotjs />
+            </div>
+            <div className="stack-item flask">
+              <SiFlask />
+            </div>
+            <div className="stack-item tailwind">
+              <SiTailwindcss />
+            </div>
+            <div className="stack-item python">
+              <SiPython />
+            </div>
+            <div className="stack-item laravel">
+              <SiLaravel />
+            </div>
+            <div className="stack-item mysql">
+              <SiMysql />
+            </div>
+            <div className="stack-item bootstrap">
+              <SiBootstrap />
+            </div>
+            <div className="stack-item html">
+              <SiHtml5 />
+            </div>
+            <div className="stack-item css">
+              <SiCss />
+            </div>
+            <div className="stack-item js">
+              <SiJavascript />
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -47,9 +47,9 @@ export const metadata = {
   authors: [{ name: "Atha Dion Saputra" }],
 
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/logo.jpg",
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
   },
   openGraph: {
     title: "Portfolio Atha Dion Saputra",
