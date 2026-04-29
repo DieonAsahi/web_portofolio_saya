@@ -57,7 +57,6 @@ export default function Navbar() {
         <h3 className={`logo-gradient ${showLogo ? "show" : "hide"}`}>
           Atha Dion Saputra
         </h3>
-
         {/* HAMBURGER (SELALU MUNCUL DI MOBILE)
         <div
           className={`hamburger ${open ? "active" : ""}`}
@@ -67,32 +66,23 @@ export default function Navbar() {
           <span></span>
           <span></span>
         </div> */}
-
         {/* MENU */}
-        <div
-          className={`nav-menu ${
-            isMobile
-              ? open
-                ? "active"
-                : ""
-              : showMenu
-              ? "show"
-              : "hide"
-          }`}
-        >
-          <a href="#home" onClick={() => setOpen(false)}>
-            Home
-          </a>
-          <a href="#about" onClick={() => setOpen(false)}>
-            About
-          </a>
-          <a href="#portfolio" onClick={() => setOpen(false)}>
-            Portfolio
-          </a>
-          <a href="#contact" onClick={() => setOpen(false)}>
-            Contact
-          </a>
-        </div>
+        {!isMobile && (
+          <div className={`nav-menu ${showMenu ? "show" : "hide"}`}>
+            <a href="#home" onClick={() => setOpen(false)}>
+              Home
+            </a>
+            <a href="#about" onClick={() => setOpen(false)}>
+              About
+            </a>
+            <a href="#portfolio" onClick={() => setOpen(false)}>
+              Portfolio
+            </a>
+            <a href="#contact" onClick={() => setOpen(false)}>
+              Contact
+            </a>
+          </div>
+        )}{" "}
       </div>
     </nav>
   );
