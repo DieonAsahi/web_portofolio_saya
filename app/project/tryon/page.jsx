@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import {SiFlutter, SiFlask, SiPython, SiMysql} from "react-icons/si";
+import { SiFlutter, SiFlask, SiPython, SiMysql } from "react-icons/si";
 import { FaBrain } from "react-icons/fa";
 export default function Page() {
   const router = useRouter();
@@ -30,13 +30,18 @@ export default function Page() {
       <div className="project-content">
         <h2 className="hero-desc-tech">Tentang Project</h2>
         <p>
-          Dalam proyek ini, saya berperan sebagai Tech Lead sekaligus Machine
-          Learning Engineer. Saya memimpin pengembangan solusi secara
-          end-to-end, termasuk membangun frontend menggunakan Flutter dan
-          backend menggunakan Flask. Selain itu, saya juga bertanggung jawab
-          dalam pengembangan serta pelatihan model Machine Learning dan Deep
-          Learning untuk menghasilkan rekomendasi pakaian yang sesuai dengan
-          preferensi pengguna.
+          Dalam proyek ini, saya berperan sebagai{" "}
+          <span className="highlight">Tech Lead</span> sekaligus{" "}
+          <span className="highlight">Machine Learning Engineer</span>. Saya
+          memimpin pengembangan solusi secara end-to-end, termasuk membangun{" "}
+          <span className="highlight">frontend</span> menggunakan{" "}
+          <span className="highlight">Flutter</span> dan{" "}
+          <span className="highlight">backend</span> menggunakan{" "}
+          <span className="highlight">Flask</span>. Selain itu, saya juga
+          bertanggung jawab dalam pengembangan serta pelatihan model{" "}
+          <span className="highlight">Machine Learning</span> dan{" "}
+          <span className="highlight">Deep Learning</span> untuk menghasilkan
+          rekomendasi pakaian yang sesuai dengan preferensi pengguna.
         </p>
 
         <div className="image-scroll-app">

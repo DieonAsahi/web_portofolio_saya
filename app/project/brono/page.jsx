@@ -31,11 +31,11 @@ export default function Page() {
       <div className="project-content">
         <h2 className="hero-desc-tech">Tentang Project</h2>
         <p className="port-desc">
-          Dalam proyek ini, saya berperan dalam pengembangan dan konfigurasi
-          JavaScript untuk memastikan interaksi pada aplikasi berjalan dengan
-          baik. Saya menangani logika frontend, pengelolaan produk, serta
-          integrasi fitur agar aplikasi dapat memberikan pengalaman yang
-          responsif dan interaktif.
+          Dalam proyek ini, saya berperan dalam pengembangan dan konfigurasi{" "}
+          <span className="highlight">JavaScript</span> untuk memastikan
+          interaksi pada aplikasi berjalan dengan baik. Saya menangani logika
+          frontend, pengelolaan produk, serta integrasi fitur agar aplikasi
+          dapat memberikan pengalaman yang responsif dan interaktif.
         </p>
 
         <div className="image-scroll-wrapper">

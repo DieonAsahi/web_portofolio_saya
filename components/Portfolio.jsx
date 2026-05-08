@@ -110,9 +110,18 @@ export default function Portfolio() {
             <div className="project-card">
               <img src="/images/coming_soon.png" alt="project" />
               <h3>Aplikasi Manajemen Kendaraan Motor</h3>
-              {/* <p>
-                Aplikasi .
-              </p> */}
+              <p>
+                Aplikasi manajemen perawatan kendaraan bermotor berbasis mobile
+                yang dikembangkan menggunakan{" "}
+                <span className="highlight">Flutter</span> sebagai frontend,{" "}
+                <span className="highlight">Node.js</span> {" "}
+                sebagai backend, <span className="highlight">
+                  Supabase
+                </span> dan <span className="highlight">MongoDB</span> sebagai
+                sistem basis data, serta{" "}
+                <span className="highlight">Flask Python</span> untuk
+                implementasi fitur machine learning.
+              </p>
 
               {/* <Link href="/project/bronp">
                 <button className="btn btn-portofolio">Detail</button>
