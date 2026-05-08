@@ -1532,6 +1532,11 @@ section {
     font-size: 14px;
   }
 
+  .about-btn {
+    justify-content: center;
+    gap: 10px;
+  }
+
   /* ===== PORTFOLIO ===== */
   .portfolio {
     margin-top: 60px;
