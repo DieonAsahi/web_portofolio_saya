@@ -19,9 +19,9 @@ export default function Contact() {
         </a>
 
         <a
-          href="https://www.linkedin.com/in/dieon-only-a777932b4/"
+          href="https://www.linkedin.com/in/atha-dion-saputra-a777932b4/"
           className="contact-card linkedin"
-          target="https://www.linkedin.com/in/dieon-only-a777932b4/"
+          target="https://www.linkedin.com/in/atha-dion-saputra-a777932b4/"
         >
           <FaLinkedin />
           <h3>LinkedIn</h3>
