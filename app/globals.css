@@ -1160,11 +1160,6 @@ section {
   color: #f1502f;
 }
 
-/* GitHub */
-.stack-item.github:hover svg {
-  color: #ffffff;
-}
-
 /* Figma */
 .stack-item.figma:hover svg {
   color: #f24e1e;

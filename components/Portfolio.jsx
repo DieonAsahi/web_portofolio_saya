@@ -20,11 +20,8 @@ import {
   SiSupabase,
   SiMongodb,
   SiGit,
-  SiGithub,
   SiFigma,
   SiFastapi,
-  SiTensorflow,
-  SiOpencv,
   SiCloudinary,
 } from "react-icons/si";
 
@@ -208,10 +205,6 @@ export default function Portfolio() {
 
             <div className="stack-item git">
               <SiGit />
-            </div>
-
-            <div className="stack-item github">
-              <SiGithub />
             </div>
 
             <div className="stack-item figma">
