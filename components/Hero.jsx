@@ -1,10 +1,5 @@
 import { FaReact, FaNodeJs } from "react-icons/fa";
-import {
-  SiNextdotjs,
-  SiFlutter,
-  SiTailwindcss,
-  SiReact,
-} from "react-icons/si";
+import { SiNextdotjs, SiFlutter, SiTailwindcss, SiReact } from "react-icons/si";
 import { SiFlask } from "react-icons/si";
 
 export default function Hero() {
@@ -32,8 +27,13 @@ export default function Hero() {
               Lihat Project Saya
             </a>
 
-            <a href="#contact" className="btn btn-outline">
-              Hubungi Saya
+            <a
+              href="https://github.com/DieonAsahi"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-outline"
+            >
+              GitHub Saya
             </a>
           </div>
 

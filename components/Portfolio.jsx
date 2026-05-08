@@ -1,21 +1,31 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-
+import { FaBrain } from "react-icons/fa";
 import {
-  SiNextdotjs,
-  SiFlask,
   SiReact,
-  SiNodedotjs,
+  SiNextdotjs,
   SiFlutter,
-  SiLaravel,
-  SiMysql,
+  SiNodedotjs,
+  SiFlask,
   SiTailwindcss,
   SiPython,
+  SiLaravel,
+  SiMysql,
   SiBootstrap,
   SiHtml5,
   SiCss,
   SiJavascript,
+  SiPostgresql,
+  SiSupabase,
+  SiMongodb,
+  SiGit,
+  SiGithub,
+  SiFigma,
+  SiFastapi,
+  SiTensorflow,
+  SiOpencv,
+  SiCloudinary,
 } from "react-icons/si";
 
 export default function Portfolio() {
@@ -114,13 +124,11 @@ export default function Portfolio() {
                 Aplikasi manajemen perawatan kendaraan bermotor berbasis mobile
                 yang dikembangkan menggunakan{" "}
                 <span className="highlight">Flutter</span> sebagai frontend,{" "}
-                <span className="highlight">Node.js</span> {" "}
-                sebagai backend, <span className="highlight">
-                  Supabase
-                </span> dan <span className="highlight">MongoDB</span> sebagai
-                sistem basis data, serta{" "}
-                <span className="highlight">Flask Python</span> untuk
-                implementasi fitur machine learning.
+                <span className="highlight">Node.js</span> sebagai backend,{" "}
+                <span className="highlight">Supabase</span> dan{" "}
+                <span className="highlight">MongoDB</span> sebagai sistem basis
+                data, serta <span className="highlight">Flask Python</span>{" "}
+                untuk implementasi fitur machine learning.
               </p>
 
               {/* <Link href="/project/bronp">
@@ -185,6 +193,41 @@ export default function Portfolio() {
             </div>
             <div className="stack-item js">
               <SiJavascript />
+            </div>
+            <div className="stack-item postgresql">
+              <SiPostgresql />
+            </div>
+
+            <div className="stack-item supabase">
+              <SiSupabase />
+            </div>
+
+            <div className="stack-item mongodb">
+              <SiMongodb />
+            </div>
+
+            <div className="stack-item git">
+              <SiGit />
+            </div>
+
+            <div className="stack-item github">
+              <SiGithub />
+            </div>
+
+            <div className="stack-item figma">
+              <SiFigma />
+            </div>
+
+            <div className="stack-item fastapi">
+              <SiFastapi />
+            </div>
+
+            <div className="stack-item ai">
+              <FaBrain />
+            </div>
+
+            <div className="stack-item cloudinary">
+              <SiCloudinary />
             </div>
           </div>
         )}

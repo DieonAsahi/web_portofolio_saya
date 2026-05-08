@@ -389,7 +389,10 @@
 
 /* BUTTON */
 .about-btn {
-  margin-top: 20px;
+  margin-top: 25px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
 body {
@@ -1135,6 +1138,46 @@ section {
 
 .stack-item.ai:hover svg {
   color: #a855f7; /* ungu sesuai theme kamu */
+}
+
+/* PostgreSQL */
+.stack-item.postgresql:hover svg {
+  color: #336791;
+}
+
+/* Supabase */
+.stack-item.supabase:hover svg {
+  color: #3ecf8e;
+}
+
+/* MongoDB */
+.stack-item.mongodb:hover svg {
+  color: #47a248;
+}
+
+/* Git */
+.stack-item.git:hover svg {
+  color: #f1502f;
+}
+
+/* GitHub */
+.stack-item.github:hover svg {
+  color: #ffffff;
+}
+
+/* Figma */
+.stack-item.figma:hover svg {
+  color: #f24e1e;
+}
+
+/* FastAPI */
+.stack-item.fastapi:hover svg {
+  color: #009688;
+}
+
+/* Cloudinary */
+.stack-item.cloudinary:hover svg {
+  color: #3448c5;
 }
 
 @keyframes gradientMove {

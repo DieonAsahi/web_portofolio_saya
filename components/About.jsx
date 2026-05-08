@@ -13,7 +13,6 @@ export default function About() {
           <h1 className="about-title">
             <span className="nama-gradient">Atha Dion Saputra</span>
           </h1>
-          
           <p className="hero-desc">
             Saya adalah seorang <span className="highlight">Developer</span>{" "}
             yang berfokus pada pengembangan{" "}
@@ -24,10 +23,20 @@ export default function About() {
             saya berusaha menghadirkan tampilan yang estetis, interaktif, serta
             mampu memberikan pengalaman digital yang berkesan.
           </p>
-
           <div className="about-btn">
-            <a href="#contact" className="btn btn-outline">Hubungi Saya</a>
-          </div>
+            <a href="#contact" className="btn btn-outline">
+              Hubungi Saya
+            </a>
+
+            <a
+              href="/CV Atha Dion Saputra.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-outline"
+            >
+              Lihat CV Saya
+            </a>
+          </div>{" "}
         </div>
       </div>
     </div>
