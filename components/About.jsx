@@ -29,7 +29,7 @@ export default function About() {
             </a>
 
             <a
-              href="/CV Atha Dion Saputra.pdf"
+              href="/cv.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-outline"
