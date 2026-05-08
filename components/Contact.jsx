@@ -29,14 +29,14 @@ export default function Contact() {
         </a>
 
         <a
-          href="https://mail.google.com/mail/?view=cm&fs=1&to=dieonasahi@gmail.com"
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=athadionsaputra1606@gmail.com"
           target="_blank"
           rel="noopener noreferrer"
           className="contact-card email"
         >
           <FaEnvelope />
           <h3>Email</h3>
-          <p>dieonasahi@gmail.com</p>
+          <p>athadionsaputra1606@gmail.com</p>
         </a>
       </div>
     </section>
