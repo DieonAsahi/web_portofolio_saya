@@ -15,7 +15,7 @@ export default function Home() {
   useEffect(() => {
     setTimeout(() => {
       setShowIntro(false);
-    }, 5000); // jangan 10 detik, kelamaan bro 😅
+    }, 5000); 
   }, []);
 
   if (showIntro) {
