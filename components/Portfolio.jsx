@@ -135,7 +135,7 @@ export default function Portfolio() {
 
             <div className="project-card">
               <img src="/images/coming_soon.png" alt="project" />
-              <h3>Game FPS 3D</h3>
+              <h3>Game TPS 3D</h3>
               {/* <p>
                 Aplikasi untuk mencoba dan merekomendasikan pakaian secara
                 virtual sesuai dengan preferensi pengguna.
